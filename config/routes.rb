@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :articles do 
     resources :comments, module: :articles
   end
+  resources :events do 
+    resources :comments, module: :events
+  end
 end

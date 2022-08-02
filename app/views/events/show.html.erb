@@ -1,0 +1,21 @@
+<h1> Showing Events Details</h1>
+<br>
+<%=  link_to 'Events listing', events_path%>
+<br>
+<div class="card" style="width:400px">
+	<h5 class="card-header"><%= @event.title%></h5>
+	<div class="card-body">
+	<p class="card-text"><%= @event.description%></p>
+
+	<hr>
+	<h5>Add Comment</h5>
+	<%= render partial: 'comments/form', locals: {commentable: @event} %>
+	<hr>
+
+	<h5>Comments</h5>
+	<%= render partial: 'comments/comments', locals: {commentable: @event} %>
+	<hr>
+	<%= link_to 'Edit', edit_event_path(@event.id), class:"btn btn-primary"%>
+	<%= link_to 'Delete', event_path(@event.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
+  </div>
+</div>

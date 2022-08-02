@@ -1,0 +1,20 @@
+<h1> Events Listing Page!!!</h1>
+<br>
+
+<p>
+  <%= button_to 'Add New Event', new_event_path, class:"btn btn-primary", method: 'get'%>
+</p>
+<br>
+
+<% @events.each do |event| %>
+
+<div class="card m-3" style="width:400px">
+	<h5 class="card-header"><%= event.title%></h5>
+	<div class="card-body">
+	<p class="card-text"><%= event.description%></p>
+	<%= link_to 'Show', event_path(event.id),class:"btn btn-primary"%>
+	<%= link_to 'Edit', edit_event_path(event.id), class:"btn btn-primary"%>
+	<%= link_to 'Delete', event_path(event.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
+  </div>
+</div>
+<% end %>
