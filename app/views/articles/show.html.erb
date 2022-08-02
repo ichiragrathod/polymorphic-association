@@ -7,6 +7,15 @@
 	<%= image_tag(@article.image, class:"card-img-top", style:"width:100%") if @article.image.attached?%> 
 	<div class="card-body">
 	<p class="card-text"><%= @article.body%></p>
+
+	<hr>
+	<h5>Add Comment</h5>
+	<%= render partial: 'comments/form', locals: {commentable: @article} %>
+	<hr>
+
+	<h5>Comments</h5>
+	<%= render partial: 'comments/comments', locals: {commentable: @article} %>
+	<hr>
 	<%= link_to 'Edit', edit_article_path(@article.id), class:"btn btn-primary"%>
 	<%= link_to 'Delete', article_path(@article.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
   </div>
