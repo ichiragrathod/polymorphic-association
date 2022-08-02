@@ -1,36 +1,36 @@
+# frozen_string_literal: true
+
+# Event class for creating events
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   def index
-    @events=Event.all
+    @events = Event.all
   end
 
   def new
-    @event=Event.new
+    @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice]="Event details was Added successfully."
+      flash[:notice] = 'Event details was Added successfully.'
       redirect_to event_path(@event)
     else
       render 'new'
     end
-
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @event.update(event_params)
-        flash[:notice]="Event updated successfully."
-        redirect_to @event
+      flash[:notice] = 'Event updated successfully.'
+      redirect_to @event
     else
-        render 'edit'
+      render 'edit'
     end
   end
 
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event=Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def event_params

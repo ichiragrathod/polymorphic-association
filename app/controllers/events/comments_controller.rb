@@ -1,8 +1,14 @@
-class Events::CommentsController < CommentsController
-	before_action :set_commentable
+# frozen_string_literal: true
 
-	private
-		def set_commentable
-			@commentable = Event.find(params[:event_id])
-		end
+module Events
+  # For Event Comments
+  class CommentsController < CommentsController
+    before_action :set_commentable
+
+    private
+
+    def set_commentable
+      @commentable = Event.find(params[:event_id])
+    end
+  end
 end
