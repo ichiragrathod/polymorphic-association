@@ -16,10 +16,25 @@
   <p>
     <%= f.label :image%>
     <br>
-    <%= f.file_field :image%>
+    <%= f.file_field :image, onchange:"loadFile(event)"%>
   </p>
+
+  <img id="output" style="display: none;" height=150' width='150' />
 
   <p>
     <%= f.submit%>
   </p>
 <% end %>
+
+<%# preview image before submit form data %>
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+    $('#output').show();
+  };
+</script>
