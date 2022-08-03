@@ -39,6 +39,18 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def delete_image_attachment
+    @image = ActiveStorage::Blob.find_signed(params[:id])
+    @image.attachments.first.purge
+    redirect_to articles_path
+  end
+
+  def delete_pdf_attachment
+    @pdf = ActiveStorage::Blob.find_signed(params[:id])
+    @pdf.attachments.first.purge
+    redirect_to articles_path
+  end
+
   private
 
   def set_article
@@ -46,6 +58,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :image)
+    params.require(:article).permit(:title, :body, :image, :pdf)
   end
 end
