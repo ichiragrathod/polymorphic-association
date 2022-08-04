@@ -39,15 +39,9 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-  def delete_image_attachment
-    @image = ActiveStorage::Blob.find_signed(params[:id])
-    @image.attachments.first.purge
-    redirect_to articles_path
-  end
-
-  def delete_pdf_attachment
-    @pdf = ActiveStorage::Blob.find_signed(params[:id])
-    @pdf.attachments.first.purge
+  def delete_attachment
+    @file = ActiveStorage::Blob.find_signed(params[:id])
+    @file.attachments.first.purge
     redirect_to articles_path
   end
 

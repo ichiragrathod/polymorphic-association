@@ -19,14 +19,15 @@
     <%= f.file_field :image, onchange:"loadFile(event)"%>
   </p>
 
-  <img id="output" style="display: none;" height='150' width='150' />
-
+  <%= image_tag 'default.png', id:"output", style:'display: none;', height:'150', width:'150'%>
+  
   <p>
     <%= label_tag(:pdf, "Insert pdf file") %>
     <br>
     <%= f.file_field :pdf%>
   </p>
   <br>
+  
   <p>
     <%= f.submit class:"btn btn-primary"%>
   </p>
