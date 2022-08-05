@@ -5,24 +5,24 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   host: localhost
-  username: ENV['POLYMORPHIC_APP_DATABASE_USER']
-  password: ENV['POLYMORPHIC_APP_DATABASE_PASSWORD']
+  username: ENV['DEMO_APP_DATABASE_USER']
+  password: ENV['DEMO_APP_DATABASE_PASSWORD']
 
 development:
   <<: *default
-  database: polymorphic-association_development
+  database: ['DEMO_APP_DATABASE_NAME']_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: polymorphic-association_test
+  database: ['DEMO_APP_DATABASE_NAME']_test
 
 production:
   <<: *default
-  database: polymorphic-association_production
+  database: ['DEMO_APP_DATABASE_NAME']_production
