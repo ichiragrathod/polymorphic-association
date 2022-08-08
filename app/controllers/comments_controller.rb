@@ -2,6 +2,7 @@
 
 # Used for commenting in Articles and Events
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @comment = @commentable.comments.new
   end
