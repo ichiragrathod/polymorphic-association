@@ -1,0 +1,42 @@
+<h1> Users Listing Page!!!</h1>
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Religion</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Mobile Number</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Postal Code</th>
+      <th>Country</th>
+      <th colspan="4">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    
+      <tr>
+        <td><%= user.id%> </td>
+        <td><%= user.first_name%> <%= user.last_name%> </td>
+        <td><%= user.religion%></td> 
+        <td><%= user.gender%></td> 
+        <td><%= user.email%></td> 
+        <td><%= user.phone_number%></td> 
+        <td><%= user.mobile_number%></td> 
+        <td><%= user.street_address%></td> 
+        <td><%= user.city%></td> 
+        <td><%= user.postal_code%></td> 
+        <td><%= user.country%></td> 
+        <td><%= link_to 'Edit', edit_user_registration_path(user.id)%></td>
+        <td><%= button_to "Delete", admin_destroy_user_path(user.id), method: :delete, data: { confirm: "Are you sure to delete this user?" } %>
+      </tr>
+    <% end %>   
+  </tbody>
+</table>
