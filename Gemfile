@@ -72,6 +72,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
 gem 'file_validators'
+gem 'rolify'
 gem 'rubocop', require: false
-gem 'rubocop-rails', require: false
