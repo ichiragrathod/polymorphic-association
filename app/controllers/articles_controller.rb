@@ -22,11 +22,16 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize @article
+  end
 
-  def edit; end
+  def edit
+    authorize @article
+  end
 
   def update
+    authorize @article
     if @article.update(article_params)
       flash[:notice] = 'Article updated successfully.'
       redirect_to @article
@@ -36,6 +41,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    authorize @article
     @article.destroy
     redirect_to articles_path
   end

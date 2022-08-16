@@ -74,5 +74,6 @@ end
 
 gem 'devise'
 gem 'file_validators'
+gem 'pundit'
 gem 'rolify'
 gem 'rubocop', require: false
