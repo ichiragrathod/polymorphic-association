@@ -1,36 +1,3 @@
-<script>
-$(document).ready(function()
-{
-  $("#submitbtn").click(function(){
-    if (validateEmail() && validatePass())
-      return true;
-    else 
-      return false;
-  });
-
-  function validateEmail() {
-    let emailValue = $("#emailfield").val();
-    if (emailValue.length == "") {
-      $("#emailerror").show();
-      return false;
-    }else {
-      $("#emailerror").hide();
-      return true;
-    }
-  }
-
-  function validatePass() {
-    let passValue = $("#passfield").val();
-    if (passValue.length == "") {
-      $("#passerror").show();
-      return false;
-    }else {
-      $("#passerror").hide();
-      return true;
-    }
-  }
-});
-</script>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
