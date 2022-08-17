@@ -2,6 +2,7 @@
 
 # Event class for creating events
 class PostsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!
   def index
@@ -10,6 +11,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize! :read, @post
   end
 
   def create
@@ -22,7 +24,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize! :read, @post
+  end
 
   def edit; end
 
