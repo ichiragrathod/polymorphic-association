@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index'
     delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
   end
+  resources :posts
 end
