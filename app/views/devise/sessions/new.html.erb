@@ -1,14 +1,49 @@
+<script>
+$(document).ready(function()
+{
+  $("#submitbtn").click(function(){
+    if (validateEmail() && validatePass())
+      return true;
+    else 
+      return false;
+  });
+
+  function validateEmail() {
+    let emailValue = $("#emailfield").val();
+    if (emailValue.length == "") {
+      $("#emailerror").show();
+      return false;
+    }else {
+      $("#emailerror").hide();
+      return true;
+    }
+  }
+
+  function validatePass() {
+    let passValue = $("#passfield").val();
+    if (passValue.length == "") {
+      $("#passerror").show();
+      return false;
+    }else {
+      $("#passerror").hide();
+      return true;
+    }
+  }
+});
+</script>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="mb-3">
     <%= f.label :email, class:"form-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", id:"emailfield", class:"form-control" %>
+    <p id="emailerror" style="color: red; display: none;">Please enter email </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :password, class:"form-label" %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    <%= f.password_field :password, autocomplete: "current-password", id:"passfield", class:"form-control" %>
+    <p id="passerror" style="color: red; display: none;">Please enter password </p>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,7 +54,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-primary"  %>
+    <%= f.submit "Log in", class:"btn btn-primary", id:"submitbtn" %>
   </div>
 <% end %>
 

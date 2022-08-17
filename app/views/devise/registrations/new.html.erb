@@ -1,3 +1,119 @@
+<script>
+$(document).ready(function()
+{
+  $("#submitbtn").click(function(){
+    validate=true;
+    let first_name = $("#first_name").val();
+    let last_name = $("#last_name").val();
+    let email = $("#email").val();
+    let password = $("#password").val();
+    let passwordconf = $("#passwordconf").val();
+    let street_address = $("#street_address").val();
+    let city = $("#city").val();
+    let country = $("#country").val();
+    let postal_code = $("#postal_code").val();
+    let phone_number = $("#phone_number").val();
+    let mobile_number = $("#mobile_number").val();
+
+    if (first_name.length == "") 
+    {
+      $("#first_name_error").show();
+      validate = false;
+    }else {
+      $("#first_name_error").hide();
+      validate = true;
+    }
+
+    if (last_name.length == "") 
+    {
+      $("#last_name_error").show();
+      validate = false;
+    }else {
+      $("#last_name_error").hide();
+      validate = true;
+    }
+
+    if (email.length == "") 
+    {
+      $("#email_error").show();
+      validate = false;
+    }else {
+      $("#email_error").hide();
+      validate = true;
+    }
+
+    if (password.length == "") 
+    {
+      $("#password_error").show();
+      validate = false;
+    }else {
+      $("#password_error").hide();
+      validate = true;
+    }
+
+    if (passwordconf.length == "") 
+    {
+      $("#password_confirm_error").show();
+      validate = false;
+    }else {
+      $("#password_confirm_error").hide();
+      validate = true;
+    }
+
+    if (street_address.length == "") 
+    {
+      $("#street_address_error").show();
+      validate = false;
+    }else {
+      $("#street_address_error").hide();
+      validate = true;
+    }
+    if (city.length == "") 
+    {
+      $("#city_error").show();
+      validate = false;
+    }else {
+      $("#city_error").hide();
+      validate = true;
+    }
+    if (country.length == "") 
+    {
+      $("#country_error").show();
+      validate = false;
+    }else {
+      $("#country_error").hide();
+      validate = true;
+    }
+
+    if (postal_code.length == "") 
+    {
+      $("#postal_code_error").show();
+      validate = false;
+    }else {
+      $("#postal_code_error").hide();
+      validate = true;
+    }
+    if (phone_number.length == "") 
+    {
+      $("#phone_number_error").show();
+      validate = false;
+    }else {
+      $("#phone_number_error").hide();
+      validate = true;
+    }
+    if (mobile_number.length == "") 
+    {
+      $("#mobile_number_error").show();
+      validate = false;
+    }else {
+      $("#mobile_number_error").hide();
+      validate = true;
+    }
+    return validate;
+  });
+});
+</script>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
@@ -5,17 +121,20 @@
 
   <div class="mb-3">
     <%= f.label :first_name, class:"form-label" %><br />
-    <%= f.text_field :first_name, class:"form-control"%>
+    <%= f.text_field :first_name, id:"first_name", class:"form-control"%>
+    <p id="first_name_error" style="color: red; display: none;">Please enter first name </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :last_name, class:"form-label" %><br />
-    <%= f.text_field :last_name, class:"form-control"%>
+    <%= f.text_field :last_name, id:"last_name",class:"form-control"%>
+    <p id="last_name_error" style="color: red; display: none;">Please enter last name </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :email, class:"form-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    <%= f.email_field :email, autofocus: true, id:"email", autocomplete: "email", class:"form-control" %>
+    <p id="email_error" style="color: red; display: none;">Please enter email </p>
   </div>
 
   <div class="mb-3">
@@ -23,12 +142,14 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+    <%= f.password_field :password, autocomplete: "new-password", id:"password", class:"form-control" %>
+    <p id="password_error" style="color: red; display: none;">Please enter password </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :password_confirmation, class:"form-label" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id:"passwordconf", class:"form-control" %>
+    <p id="password_confirm_error" style="color: red; display: none;">Please enter password confirm </p>
   </div>
 
   <div class="mb-3">
@@ -38,32 +159,38 @@
 
   <div class="mb-3">
     <%= f.label :street_address, class:"form-label" %><br />
-    <%= f.text_field :street_address, class:"form-control"%>
+    <%= f.text_field :street_address, id:"street_address", class:"form-control"%>
+    <p id="street_address_error" style="color: red; display: none;">Please enter street address </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :city, class:"form-label" %><br />
-    <%= f.text_field :city, class:"form-control"%>
+    <%= f.text_field :city, id:"city", class:"form-control"%>
+    <p id="city_error" style="color: red; display: none;">Please enter city </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :country, class:"form-label" %><br />
-    <%= f.text_field :country, class:"form-control"%>
+    <%= f.text_field :country, id:"country", class:"form-control"%>
+    <p id="country_error" style="color: red; display: none;">Please enter country </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :postal_code, class:"form-label" %><br />
-    <%= f.number_field :postal_code, class:"form-control"%>
+    <%= f.number_field :postal_code, id:"postal_code", class:"form-control"%>
+    <p id="postal_code_error" style="color: red; display: none;">Please enter postal code </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :phone_number, class:"form-label" %><br />
-    <%= f.number_field :phone_number, class:"form-control"%>
+    <%= f.number_field :phone_number, id:"phone_number", class:"form-control"%>
+    <p id="phone_number_error" style="color: red; display: none;">Please enter phone number </p>
   </div>
 
   <div class="mb-3">
     <%= f.label :mobile_number, class:"form-label" %><br />
-    <%= f.number_field :mobile_number, class:"form-control"%>
+    <%= f.number_field :mobile_number, id:"mobile_number", class:"form-control"%>
+    <p id="mobile_number_error" style="color: red; display: none;">Please enter mobile number </p>
   </div>
   
   <div class="mb-3">
@@ -78,7 +205,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-primary" %>
+    <%= f.submit "Sign up", id:"submitbtn", class:"btn btn-primary" %>
   </div>
 <% end %>
 
