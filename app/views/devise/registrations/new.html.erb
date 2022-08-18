@@ -6,19 +6,19 @@
   <div class="mb-3">
     <%= f.label :first_name, class:"form-label" %><br />
     <%= f.text_field :first_name, id:"first_name", class:"form-control"%>
-    <p id="first_name_error" style="color: red; display: none;">Please enter first name </p>
+    <%= f.label "Please enter first name", id:"first_name_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
     <%= f.label :last_name, class:"form-label" %><br />
     <%= f.text_field :last_name, id:"last_name",class:"form-control"%>
-    <p id="last_name_error" style="color: red; display: none;">Please enter last name </p>
+    <%= f.label "Please enter last name", id:"last_name_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
     <%= f.label :email, class:"form-label" %><br />
     <%= f.email_field :email, autofocus: true, id:"email", autocomplete: "email", class:"form-control" %>
-    <p id="email_error" style="color: red; display: none;">Please enter email </p>
+    <%= f.label "Please enter email ", id:"email_error", style:"color: red; display: none;" %>
   </div>
 
   <div class="mb-3">
@@ -27,13 +27,13 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", id:"password", class:"form-control" %>
-    <p id="password_error" style="color: red; display: none;">Please enter password </p>
+    <%= f.label "Please enter password", id:"password_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
     <%= f.label :password_confirmation, class:"form-label" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", id:"passwordconf", class:"form-control" %>
-    <p id="password_confirm_error" style="color: red; display: none;">Please enter password confirm </p>
+    <%= f.label "Please enter password confirm", id:"password_confirm_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
@@ -44,37 +44,37 @@
   <div class="mb-3">
     <%= f.label :street_address, class:"form-label" %><br />
     <%= f.text_field :street_address, id:"street_address", class:"form-control"%>
-    <p id="street_address_error" style="color: red; display: none;">Please enter street address </p>
+    <%= f.label "Please enter street address", id:"street_address_error", style:"color: red; display: none;" %>
   </div>
 
   <div class="mb-3">
     <%= f.label :city, class:"form-label" %><br />
     <%= f.text_field :city, id:"city", class:"form-control"%>
-    <p id="city_error" style="color: red; display: none;">Please enter city </p>
+    <%= f.label "Please enter city", id:"city_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
     <%= f.label :country, class:"form-label" %><br />
     <%= f.text_field :country, id:"country", class:"form-control"%>
-    <p id="country_error" style="color: red; display: none;">Please enter country </p>
+    <%= f.label "Please enter country", id:"country_error", style:"color: red; display: none;" %> 
   </div>
 
   <div class="mb-3">
     <%= f.label :postal_code, class:"form-label" %><br />
     <%= f.number_field :postal_code, id:"postal_code", class:"form-control"%>
-    <p id="postal_code_error" style="color: red; display: none;">Please enter postal code </p>
+    <%= f.label "Please enter postal code", id:"postal_code_error", style:"color: red; display: none;" %>
   </div>
 
   <div class="mb-3">
     <%= f.label :phone_number, class:"form-label" %><br />
     <%= f.number_field :phone_number, id:"phone_number", class:"form-control"%>
-    <p id="phone_number_error" style="color: red; display: none;">Please enter phone number </p>
+    <%= f.label "Please enter phone number", id:"phone_number_error", style:"color: red; display: none;" %>
   </div>
 
   <div class="mb-3">
     <%= f.label :mobile_number, class:"form-label" %><br />
     <%= f.number_field :mobile_number, id:"mobile_number", class:"form-control"%>
-    <p id="mobile_number_error" style="color: red; display: none;">Please enter mobile number </p>
+    <%= f.label "Please enter mobile number", id:"mobile_number_error", style:"color: red; display: none;" %>
   </div>
   
   <div class="mb-3">
@@ -89,7 +89,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", id:"signupbtn", class:"btn btn-primary" %>
+    <%= f.submit "Sign up", id:"sign_up_btn", class:"btn btn-primary" %>
   </div>
 <% end %>
 

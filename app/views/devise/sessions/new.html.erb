@@ -4,13 +4,13 @@
   <div class="mb-3">
     <%= f.label :email, class:"form-label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", id:"emailfield", class:"form-control" %>
-    <p id="emailerror" style="color: red; display: none;">Please enter email </p>
+    <%= f.label "Please enter email", id:"emailerror", style:"color: red; display: none;"%>
   </div>
 
   <div class="mb-3">
     <%= f.label :password, class:"form-label" %><br />
     <%= f.password_field :password, autocomplete: "current-password", id:"passfield", class:"form-control" %>
-    <p id="passerror" style="color: red; display: none;">Please enter password </p>
+    <%= f.label "Please enter password", id:"passerror", style:"color: red; display: none;"%>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -21,7 +21,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-primary", id:"submitbtn" %>
+    <%= f.submit "Log in", class:"btn btn-primary", id:"sign_in_btn" %>
   </div>
 <% end %>
 

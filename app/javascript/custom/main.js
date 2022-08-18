@@ -1,7 +1,6 @@
 $(document).ready(function()
 {
-
-  $("#signupbtn").click(function(){
+  $("#sign_up_btn").click(function(){
     validate=true;
     let first_name = $("#first_name").val();
     let last_name = $("#last_name").val();
@@ -14,7 +13,7 @@ $(document).ready(function()
     let postal_code = $("#postal_code").val();
     let phone_number = $("#phone_number").val();
     let mobile_number = $("#mobile_number").val();
-
+    
     if (first_name.length == "") 
     {
       $("#first_name_error").show();
@@ -112,8 +111,7 @@ $(document).ready(function()
     return validate;
   });
 
-  
-  $("#submitbtn").click(function(){
+  $("#sign_in_btn").click(function(){
     if (validateEmail() && validatePass())
       return true;
     else 
@@ -141,6 +139,4 @@ $(document).ready(function()
       return true;
     }
   }
-
-  
 });
