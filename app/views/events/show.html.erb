@@ -15,7 +15,7 @@
 	<h5>Comments</h5>
 	<%= render partial: 'comments/comments', locals: {commentable: @event} %>
 	<hr>
-	<%= link_to 'Edit', edit_event_path(@event.id), class:"btn btn-primary"%>
-	<%= link_to 'Delete', event_path(@event.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
+	<%= link_to 'Edit', edit_event_path(@event.id), class:"btn btn-primary" if policy(Event).edit?%>
+	<%= link_to 'Delete', event_path(@event.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" } if policy(Event).destroy?%> 
   </div>
 </div>

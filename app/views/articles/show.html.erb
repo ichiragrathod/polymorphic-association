@@ -11,7 +11,7 @@
     <%= image_tag(@article.image, class:"card-img-top", style:"width:100%") %> 
     <%= link_to 'Remove Image', delete_attachment_article_path(@article.image.signed_id),class:" m-2 btn btn-danger",
         method: :delete, 
-        data: { confirm: 'Are you sure to delete this image?' } %>
+        data: { confirm: 'Are you sure to delete this image?' } if policy(Article).delete_attachment?%>
   <% end %>
   
   <div class="card-body">
@@ -24,7 +24,7 @@
         <% end %>
         <%= link_to 'Remove Pdf', delete_attachment_article_path(@article.pdf.signed_id),class:"m-2 btn btn-danger",
             method: :delete,
-            data: { confirm: 'Are you sure to delete this pdf?' } %>
+            data: { confirm: 'Are you sure to delete this pdf?' } if policy(Article).delete_attachment?%>
       <hr>
     <% end %>
     
@@ -36,7 +36,7 @@
     <%= render partial: 'comments/comments', locals: {commentable: @article} %>
     <hr>
 
-    <%= link_to 'Edit', edit_article_path(@article.id), class:"btn btn-primary" %>
-    <%= link_to 'Delete', article_path(@article.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" } %> 
+    <%= link_to 'Edit', edit_article_path(@article.id), class:"btn btn-primary" if policy(Article).edit?%>
+    <%= link_to 'Delete', article_path(@article.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" } if policy(Article).destroy?%> 
   </div>
 </div>
