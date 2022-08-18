@@ -8,8 +8,8 @@
     <p class="card-text"><%= @post.body%></p>
     <hr>
     <% if can? :edit, @post %>
-      <%= link_to 'Edit', edit_post_path(@post.id), class:"btn btn-primary"%>
-      <%= link_to 'Delete', post_path(@post.id),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
+      <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary"%>
+      <%= link_to 'Delete', post_path(@post),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
     <% end %>
   </div>
 </div>
