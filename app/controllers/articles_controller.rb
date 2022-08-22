@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      ArticleMailer.with(user: current_user, article: @article).article_created.deliver_now
       flash[:notice] = 'Article details was Added successfully.'
       redirect_to article_path(@article)
     else
