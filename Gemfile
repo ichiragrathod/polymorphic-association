@@ -72,8 +72,8 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'cancancan'
 gem 'devise'
 gem 'file_validators'
 gem 'rolify'
-gem 'cancancan'
 gem 'rubocop', require: false
