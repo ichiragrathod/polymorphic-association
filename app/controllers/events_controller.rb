@@ -22,11 +22,16 @@ class EventsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    authorize @event
+  end
 
-  def edit; end
+  def edit
+    authorize @event
+  end
 
   def update
+    authorize @event
     if @event.update(event_params)
       flash[:notice] = 'Event updated successfully.'
       redirect_to @event
@@ -36,6 +41,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    authorize @event
     @event.destroy
     redirect_to events_path
   end

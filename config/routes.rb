@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :comments, module: :events
   end
-  
+  resources :posts
   get '/users', to: 'users#index'
   delete 'users/:id', to: 'users#destroy', as: :admin_destroy_user
-  resources :posts
 end
