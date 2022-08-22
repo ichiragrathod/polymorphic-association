@@ -1,0 +1,18 @@
+<h1> Posts Listing Page!!!</h1>
+<br>
+<% if can? :create, @post %>
+  <p>
+    <%= button_to 'Add New Post', new_post_path, class:"btn btn-primary", method: 'get'%>
+  </p>
+<% end %>
+<br>
+
+<% @posts.each do |post| %>
+<div class="card m-3" style="width:400px">
+  <h5 class="card-header"><%= post.title%></h5>
+  <div class="card-body">
+    <p class="card-text"><%= post.body%></p>
+    <%= link_to 'Show', post_path(post.id),class:"btn btn-primary"%>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,15 @@
+<h1> Showing Posts Details</h1>
+<br>
+<%=  link_to 'Posts listing', posts_path%>
+<br>
+<div class="card" style="width:400px">
+  <h5 class="card-header"><%= @post.title%></h5>
+  <div class="card-body">
+    <p class="card-text"><%= @post.body%></p>
+    <hr>
+    <% if can? :edit, @post %>
+      <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary"%>
+      <%= link_to 'Delete', post_path(@post),  class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure to delete this data?" }  %> 
+    <% end %>
+  </div>
+</div>
